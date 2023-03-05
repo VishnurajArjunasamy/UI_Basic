@@ -1,0 +1,158 @@
+* {
+    margin: 0px;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 20px;
+}
+
+/* setting the image size and brightness  */
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../Images/background-image.png");
+    background-size: 100%;
+    filter: brightness(75%);
+}
+
+.content {
+    position: absolute;
+    color: #ffffff;
+    width: 100%;
+    height: 100vh;
+}
+
+.heading {
+    position: relative;
+    top: 45px;
+    font-size: 4.1em;
+    font-weight: 600;
+    word-spacing: 5px;
+    text-align: center;
+
+}
+
+.quote {
+    position: relative;
+    bottom: -570px;
+    text-align: center;
+    font-size: 6.2em;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.quote div {
+    margin-top: -30px;
+    font-size: 1.26em;
+    letter-spacing: 0.04em;
+}
+
+.rotated {
+    position: absolute;
+    z-index: 1;
+    right: -110px;
+    top: 175px;
+    font-size: 2.35em;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transform: rotate(-90deg);
+}
+
+.rotated span {
+    font-size: 2.6em;
+
+}
+
+.menu {
+    position: absolute;
+    top: 45px;
+}
+
+.menu-icon {
+    width: 90px;
+    height: 90px;
+    background-color: #000000;
+    padding: 30px 9px;
+}
+.menu-icon:hover{
+    cursor: pointer;
+}
+
+.menu-icon div {
+    height: 1px;
+    margin: 5px 20px;
+    border: Solid #ffffff 1.5px;
+    border-radius: 2px;
+
+}
+
+.slider {
+    position: relative;
+    left: -400px;
+    width: 300px;
+    height: 790px;
+    padding-top: 30px;
+    border-radius: 30px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+
+    transition-property: left;
+    transition-duration: 2s;
+    transition-timing-function: ease-out;
+}
+
+.slider ul {
+    list-style-type: none;
+}
+
+.slider li {
+    padding-top: 22px;
+    font-size: 1.07em;
+}
+
+a:link    { 
+    color: #ffffff; text-decoration: none; 
+}
+a:visited { 
+    color: #ffffff; text-decoration: none; 
+}
+a:hover   { 
+    color: #ffffff; text-decoration: none; 
+}
+a:active  { 
+    color: #ffffff; text-decoration: none; 
+}
+
+.slider img {
+    width: 34%;
+    margin-bottom: 10px;
+}
+
+.slider:hover,
+.menu-icon:hover+.slider {
+    left: -25px;
+}
+
+.logo {
+    position: relative;
+    display: flex;
+    column-gap: 20px;
+    /* z-index: 2; */
+    color: #ffffff;
+    font-size: 45px;
+    bottom: -950px;
+    right: -1600px;
+}
+
+.logo i {
+    font-size: 38px;
+}
+
+.logo i:nth-child(2) {
+    font-size: 33px;
+}
