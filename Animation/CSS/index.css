@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    background-color: #7cfc00;
+}
+
+.lights{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    width: 80px;
+    height: 250px;
+    border-radius: 40px;
+    border: solid 5px #c0c0c0;
+    top:230px;
+    left: 830px;
+    background-color: #000000;
+
+    animation-name: shrink;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.lights div{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ffffff;
+
+    animation-duration: 1s;
+    animation-timing-function: linear;
+}
+
+.lights div:first-child{
+    animation-name: redLight;
+}
+
+.lights div:nth-child(2){
+    animation-name: yellowLight;
+    animation-delay: 1s;
+}
+
+.lights div:nth-child(3){
+    animation-name: greenLight;
+    animation-delay: 2s;
+}
+
+.race-tarck{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width:50%;
+    height: 100vh;
+    border-left: solid 70px #f4a460;
+    border-right: solid 70px #f4a460;
+    margin: auto;
+    background-color: #1D1D1D;
+}
+
+.start-line{
+    position: relative;
+    left: 502px;
+    bottom: 180px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 41.9%;
+    height: 60px;
+    background-color: #5400fc;
+}
+
+.start-line >div{
+    width: 38.1px;
+}
+
+.start-line >div:nth-child(odd){
+    background-color: #ffffff;
+}
+
+.start-line>div:nth-child(even){
+    background-color: #000000;
+}
+
+.race-tarck img{
+    z-index: 1;
+    position: relative;
+    bottom: -900px;
+    width: 40px;
+    height: 100px;
+}
+
+.pink-car{
+    animation-name: pinkCar;
+    animation-duration: 8s;
+    animation-timing-function:linear;
+    animation-delay: 4s;
+    animation-fill-mode:forwards;
+}
+
+.yellow-car{
+    animation-name: yellowCar;
+    animation-duration:8s;
+    animation-timing-function: ease-in;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+}
+
+.blue-car{
+    animation-name: blueCar;
+    animation-duration: 8s;
+    animation-timing-function:ease-in-out;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes  redLight{
+    from{background-color: #ffffff;}
+    to{background-color: #9d0303;}
+}
+
+@keyframes  yellowLight{
+    from{background-color: #ffffff;}
+    to{background-color: #ffff02;}
+}
+
+@keyframes  greenLight{
+    from{background-color: #ffffff;}
+    to{background-color: #09e509;}
+}
+
+@keyframes shrink {
+    from{top:230px}
+    to{top:-250px}
+}
+
+@keyframes pinkCar {
+    from{bottom: -850px;}
+    to{bottom:0px;}
+}
+
+@keyframes yellowCar {
+    from{bottom: -850px;}
+    to{bottom:0px;}
+}
+
+@keyframes blueCar {
+    from{bottom: -850px;}
+    to{bottom:0px;}
+}
