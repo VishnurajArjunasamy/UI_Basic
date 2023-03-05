@@ -1,0 +1,185 @@
+/* importing font */
+@font-face {
+    font-family: wiggly;
+    src: url("../Fonts/Chellion.ttf");
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+
+img {
+    width: 100%;
+    aspect-ratio: 2/2.4;
+    /* aspect-ratio: 0.8; */
+}
+
+body {
+    background-color: #2a2b30;
+}
+
+header {
+    position: relative;
+    top: 60px;
+    width: 84%;
+    margin: auto;
+}
+.logo,.logo span{
+    font-family: wiggly;
+}
+.logo {
+    font-size: 68px;
+    color: #88b282;
+}
+
+.logo>span {
+    color: #ca8491;
+}
+
+.profile {
+    position: absolute;
+    right: -20px;
+    top: 5px;
+    margin-left: auto;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #d8d8d8;
+}
+
+.dropdown {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    top: 70px;
+    width: 255px;
+    padding: 18px 19px 16px 19px;
+    border-top: solid 15px #2a2b30;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    background-color: #ffffff;
+    visibility: hidden;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.dropdown>li {
+    padding: 8px;
+}
+
+.profile:hover .dropdown {
+    visibility: visible;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container{
+    position: relative;
+    top: 100px;
+    margin-left: 120px;
+    margin-bottom: 180px;
+    width: 88%;
+
+}
+
+.catlog {
+    position: relative;
+    width: 24%;
+    margin-bottom: 24px;
+    margin-right: 10px;
+    padding: 19px;
+    display: inline-block;
+}
+
+.catlog i{
+    position: absolute;
+    z-index: 1;
+    right: 41px;
+    top: 38px;
+    font-size: 23px;
+    color: #88b282;
+}
+.cloth-holder{
+    background-color: #24252a;
+}
+.catlog img {
+    position: relative;
+    height: auto;
+    padding: 60px 50px;
+}
+
+.cloth-size {
+    position: absolute;
+    right: 41px;
+    bottom: 123px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 14px;
+    font-size: 23px;
+    font-weight: 500;
+    color: #000000;
+    background-color: #88b282;
+}
+
+.details {
+    position: relative;
+}
+
+.cloth-type {
+    margin-top: 13px;
+    font-size: 23px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.price {
+    font-size: 22px;
+    margin-top: 5px;
+    color: #8d8d8e;
+}
+
+button {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 17px;
+    margin-top: 14px;
+    color: #8d8d8e;
+    border: solid 1.5px #8d8d8e;
+    background-color: #2a2b30;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #8d8d8e;
+    color:#2a2b30;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 24px;
+    background-color: #000000;
+    text-align: center;
+    
+}
+
+footer a {
+    display: inline-block;
+    padding: 25px;
+    margin-right: 35px;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 13px;
+    color: #ffffff;
+}
