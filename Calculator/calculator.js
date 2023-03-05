@@ -1,0 +1,19 @@
+calculator={
+    add:function(num1,num2){
+        console.log(num1+num2)
+    },
+    sub:function(num1,num2){
+        console.log(num1-num2)
+    },
+    multiply:function(num1,num2){
+        console.log(num1*num2)
+    },
+    divide:function(num1,num2){
+        console.log((num1/num2).toFixed(4))
+    }
+}
+
+calculator.add(2,3)
+calculator.sub(2,3)
+calculator.multiply(2,3)
+calculator.divide(2,0)
