@@ -1,0 +1,61 @@
+/* universal styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+header{
+    height: 100px;
+    padding-top: 39px;
+    padding-left: 35px;
+    color: #ffffff;
+    background-color: #371e63;
+}
+h1{
+    font-size: 1.5em;
+    font-weight: 300;
+}
+/* dispalying the container in flex */
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9em;
+    width: 89%;
+    margin: 70px auto;
+}
+
+/* styling for each card and elements within */
+.card{
+    display: flex;
+    align-items: center;
+    column-gap:25px;
+    width: 500px;
+    height: 105px;
+    padding-left: 15px;
+    color: #ffffff;
+    background-color: #5266af;
+}
+
+img{
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+}
+
+.name{
+    font-size:1.18em;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+ .email{
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+a:link,a:visited { 
+    color: #ffffff; 
+    text-decoration: none; 
+}
