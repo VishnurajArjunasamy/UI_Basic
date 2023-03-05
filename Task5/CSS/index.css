@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+header > h1 {
+    text-align: center;
+    font-size: 21px;
+    letter-spacing: normal;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 30px 0;
+    margin-bottom: 36px;
+    background-color: #145f94;
+    letter-spacing: 1px;
+}
+
+/* Adjusting the container width */
+.container {
+    width: 83.5%;
+    margin: auto;
+    letter-spacing: 1px;
+    text-align: justify;
+}
+
+/* border and margin for all boxes */
+.container .wrapper-left>div,  .container .wrapper-right>div{
+    border: solid 1px #145f94;
+    margin-bottom: 20px;
+}
+
+
+.wrapper-left{
+  float: left;
+  width: 62.4%;
+}
+
+.wrapper-right{
+  float: right;
+  width: 36.2%;
+}
+
+.channel {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 15px 26px;
+    background-color: #145f94;
+}
+
+article {
+    padding: 21px 24px 21px 24px;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.5;
+    background-color: #f5f5f5;
+}
+
+  /* media query for mobile screens with max width of 600px */
+
+  @media only screen and (max-width: 768px) {
+      .container>div {
+          width: 100%;
+      }
+  }
