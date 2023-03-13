@@ -1,4 +1,4 @@
-function bank(cardNum,PIN,user,operation){
+function bank(operation){
     //client details
     const usersObj=[
         {   'Name':'Ram',
@@ -56,37 +56,40 @@ function bank(cardNum,PIN,user,operation){
     const selli =new Client(usersObj[4])
     users.push(selli)
 
-    let clientObj= users.find((ele)=>ele.Name==user)
-
     //fucntion for withdraw
-    function ATM(amount){
-        if(!amount) return console.log('enter amount')
-        if(amount<=clientObj.AccBal) {
-            clientObj.AccBal=clientObj.AccBal-amount
-            console.log(`${clientObj.Name} -  Rupess ${amount} successfully withdrawan`)
-            console.log(`${clientObj.Name} - Ruepess ${clientObj.AccBal} is the balance`)
+    function ATM(cardNum,PIN,amount,user){
+        let clientObj= users.find((ele)=>ele.Name==user)
+        if((cardNum==clientObj.cardNum)&&(PIN==clientObj.PIN)){
+            if(amount<=clientObj.AccBal) {
+                clientObj.AccBal=clientObj.AccBal-amount
+                console.log(`${clientObj.Name} -  Rupess ${amount} successfully withdrawan`)
+                console.log(`${clientObj.Name} - Ruepess ${clientObj.AccBal} is the balance`)
+            }
+            else console.log(`${clientObj.Name} - Insufficient balance`)
         }
-        else console.log(`${clientObj.Name} - Insufficient balance`)
+        else console.log('wrong credentials!')
     }
 
     //function for deposit
-    function CDM(amount){
-        clientObj.AccBal=amount+clientObj.AccBal
-        console.log(`${clientObj.Name} - Rupees ${amount} deposited`)
-        console.log(`${clientObj.Name} - Ruepess ${clientObj.AccBal} is the balance`)
+    function CDM(cardNum,PIN,amount,user){
+        let clientObj= users.find((ele)=>ele.Name==user)
+        if((cardNum==clientObj.cardNum)&&(PIN==clientObj.PIN)){
+            clientObj.AccBal=amount+clientObj.AccBal
+            console.log(`${clientObj.Name} - Rupees ${amount} deposited`)
+            console.log(`${clientObj.Name} - Ruepess ${clientObj.AccBal} is the balance`)
+        }
+        else console.log('wrong credentials!')
+  
     }
 
-    if((cardNum==clientObj.cardNum)&&(PIN==clientObj.PIN)){
-        if(operation=='withdraw'){
-            return ATM;
-        }
-        
-        if(operation=='deposit'){
-            return CDM;
-        }    
+    if(operation=='withdraw'){
+        return ATM;
     }
-    else console.log('wrong credentials!')
+    
+    if(operation=='deposit'){
+        return CDM;
+    }    
 }
 
 
-let transaction=bank(9999222211110000,1234,'Arun','withdraw')
+// let t =bank(9999222211110000,1234,100,'Arun','withdraw')
