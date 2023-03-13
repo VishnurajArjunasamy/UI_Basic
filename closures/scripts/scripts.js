@@ -1,4 +1,4 @@
-function bank(cardNum,PIN,amount,user,operation){
+function bank(cardNum,PIN,user,operation){
     //client details
     const usersObj=[
         {   'Name':'Ram',
@@ -58,16 +58,19 @@ function bank(cardNum,PIN,amount,user,operation){
 
     let clientObj= users.find((ele)=>ele.Name==user)
 
-    function ATM(){
+    //fucntion for withdraw
+    function ATM(amount){
+        if(!amount) return console.log('enter amount')
         if(amount<=clientObj.AccBal) {
             clientObj.AccBal=clientObj.AccBal-amount
             console.log(`${clientObj.Name} -  Rupess ${amount} successfully withdrawan`)
             console.log(`${clientObj.Name} - Ruepess ${clientObj.AccBal} is the balance`)
-    }
-    else console.log(`${clientObj.Name} - Insufficient balance`)
+        }
+        else console.log(`${clientObj.Name} - Insufficient balance`)
     }
 
-    function CDM(){
+    //function for deposit
+    function CDM(amount){
         clientObj.AccBal=amount+clientObj.AccBal
         console.log(`${clientObj.Name} - Rupees ${amount} deposited`)
         console.log(`${clientObj.Name} - Ruepess ${clientObj.AccBal} is the balance`)
@@ -75,15 +78,15 @@ function bank(cardNum,PIN,amount,user,operation){
 
     if((cardNum==clientObj.cardNum)&&(PIN==clientObj.PIN)){
         if(operation=='withdraw'){
-            return ATM();
+            return ATM;
         }
         
         if(operation=='deposit'){
-            return CDM();
+            return CDM;
         }    
     }
     else console.log('wrong credentials!')
 }
 
 
-bank(9999222211110000,1234,20,'Arun','withdraw')
+let transaction=bank(9999222211110000,1234,'Arun','withdraw')
