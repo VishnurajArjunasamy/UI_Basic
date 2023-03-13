@@ -92,4 +92,5 @@ function bank(operation){
 }
 
 
-// let t =bank(9999222211110000,1234,100,'Arun','withdraw')
+// let t =bank'withdraw')
+//9999222211110000,1234,100,'Arun',
