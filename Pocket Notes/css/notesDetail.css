@@ -1,0 +1,62 @@
+header i {
+  color: #ffffff;
+  font-size: 2.7em;
+  cursor: pointer;
+}
+header h1 {
+  margin-left: 0.5em;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #000000;
+  color: #ffffff;
+  margin-top: 133px;
+}
+main .color-picked {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+}
+main .note-details {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  width: 50vw;
+}
+main .note-details h1 {
+  font-size: 2.7em;
+  font-weight: 900;
+}
+main .note-details h3 {
+  font-size: 1.5em;
+  font-weight: 300;
+}
+main .note-details img {
+  border-radius: 15px;
+  height: 410px;
+  margin: 1.5em 0;
+}
+main .note-details p {
+  font-size: 1.9em;
+  line-height: 1.8em;
+  font-weight: 300;
+}
+
+.save-btn {
+  right: 0px;
+  font-size: 0.9em;
+  border-radius: 100px;
+  border: none;
+  color: #ffffff;
+  font-size: 1.1em;
+  background-color: #a75ab2;
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+/*# sourceMappingURL=notesDetail.css.map */
