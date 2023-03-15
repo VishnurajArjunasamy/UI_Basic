@@ -1,3 +1,6 @@
+/* Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -27,13 +30,12 @@ header img {
 main {
     width: 37vw;
     margin: auto;
-    background-color: transparent !important;
 }
 
 
-.tab-container {
-    border: none !important;
-
+#tabContainer {
+    border: none;
+    background-color: transparent;
 }
 
 #tabContainer ul {
@@ -45,29 +47,34 @@ main {
 }
 
 #tabContainer li {
-    background: black;
-    color: #ffffff;
+    background: #000;
+    width: 120px;
+    height: 35px;
+    color: #fff;
     border-radius: 5px 5px 0 0;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 1px;
 }
 
 #tabContainer li.ui-tabs-active .ui-tabs-anchor,
 li.ui-state-disabled .ui-tabs-anchor {
+    border-radius: 5px 5px 0 0;
     background-color: #071b6d;
+    width: 120px;
+    height: 35px;
 }
 
+#tabContainer a {
+    color: #fff;
+    padding: 10px 22px;
+}
 
 #tab-display-area {
     box-shadow: #0000003d 0px 3px 8px;
     padding: 20px 10px 10px 10px;
     height: 60vh;
     overflow-y: auto;
-}
-
-#tabContainer a {
-    color: #ffffff;
 }
 
 /* tab 1 */
@@ -88,22 +95,28 @@ li.ui-state-disabled .ui-tabs-anchor {
     font-size: 11px;
     font-weight: 300;
 }
-#solutions-tab .ui-corner-all{
-    border-radius: 0px;
+
+.ui-accordion-header-icon.ui-icon.ui-icon-triangle-1-e{
+    background-image: url("http://code.jquery.com/ui/1.13.2/themes/base/images/ui-icons_ffffff_256x240.png");
 }
 
 #solutions-tab .ui-widget-content{
     border: 1px solid #838db6;
+    border-radius:0 ;
 }
 
 #solutions-tab .ui-state-default,
 .ui-widget-content .ui-state-default {
-    color: #ffffff;
+    color: #fff;
     background-color: #838db6;
+    border-radius:0;
+    height: 39px;
+
 }
 
 #solutions-tab h3 {
     margin-top: 10px;
+    padding: 11px;
     font-size: 12px;
     font-weight: 600;
 }
@@ -122,13 +135,12 @@ li.ui-state-disabled .ui-tabs-anchor {
     justify-content: space-between;
     align-items: center;
     height: 35px;
-    background-color: #eeeeee;
+    background-color: #eee;
     padding: 15px;
 }
 
 .location-card p:nth-child(2){
     width: 150px;
-    margin-left: -50px;
 }
 .location-card p:nth-child(3){
     width: 150px;
@@ -144,5 +156,3 @@ li.ui-state-disabled .ui-tabs-anchor {
     background-color: #eed8f3;
 }
 
-/* Roboto font */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
