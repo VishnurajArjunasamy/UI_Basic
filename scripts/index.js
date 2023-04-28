@@ -1,11 +1,51 @@
 $(document).ready(function () {
+  //calander page
+
+  $("#calandarContainer").hide();
+  const calandarContainer = $("<div>");
+  //date picker functionality
+  //handle the date selected
+  const onDateSelect = (selectedDate) => {
+    console.log(selectedDate);
+    $("#calandarContainer").hide();
+    $("#imageContainer").show();
+    $("#descpContainer").show();
+  };
+  calandarContainer.datepicker({
+    onSelect: onDateSelect,
+    dateFormat: "dd/mm/yy",
+    defaultDate: new Date().now,
+  });
+  $("#calandarContainer").append(calandarContainer);
+
   const leftHeader = $("<div>");
   leftHeader.addClass("left-header");
 
+  //Add image Icon
+  const addImgeIcon = $('<i class="fa fa-plus"></i>');
+  addImgeIcon.click(() => {
+    form.show();
+  });
+
+  //Calender Icon
+  const calandarIcon = $('<i class="fa-solid fa-calendar-days"></i>');
+  calandarIcon.click(() => {
+    $("#calandarContainer").show();
+    $("#imageContainer").hide();
+    $("#descpContainer").hide();
+  });
+
+  //Close Icon
+  const closeIcon = $('<i class="fa-solid fa-xmark"></i>');
+  closeIcon.click(() => {
+    form.hide();
+  });
+
+  //left container header
   leftHeader
-    .append($("<i class='fa fa-cloud'></i>"))
-    .append($("<h2></h2>").append("MEDIA"))
-    .append($('<i class="fa fa-plus"></i>'))
+    .append(calandarIcon)
+    .append($("<h2>MEDIA</h2>"))
+    .append(addImgeIcon)
     .append($('<i class="fa fa-gear"></i>'));
   $("#imageContainer").append(leftHeader);
 
@@ -15,32 +55,20 @@ $(document).ready(function () {
   images.append(imageCard);
   $("#imageContainer").append(images);
 
-  let imageData = "";
-  let date = "";
-  let location = "";
-  let journalTxt = "";
-  //journal object
-  function Journel(imageData, date, location, journalTxt) {
-    this.imageData = imageData;
-    this.date = date;
-    this.location = location;
-    this.journalTxt = journalTxt;
-  }
+  //add image form
+  const form = $('<form class="images-form" id="imagesForm"></form>').hide();
+  form.append(closeIcon);
+  form.append(
+    $(
+      '<div class="input-wrapper"><label for="image" class="file-label">Choose an image</label><input type="file" id="image" name="image" accept="image/*"  required ></div>'
+    )
+  );
 
-  const form = $('<form class="add-data-form" id="journelForm"></form>');
-  form.append(
-    $('<input type="file" id="image" name="select image"  required >')
-  );
-  form.append(
-    $(
-      '<input type="text" id="location"  placeholder="Add location" required maxlength="100">'
-    )
-  );
-  form.append(
-    $(
-      `<textarea id="journalTxt" class="content-box" placeholder='Add Content Here' required></textarea>`
-    )
-  );
+  // form.append(
+  //   $(
+  //     `<textarea id="journalTxt" class="content-box" placeholder='Add Content Here' required></textarea>`
+  //   )
+  // );
   form.append($('<input type="submit"  value="ADD">'));
 
   form.submit(function (e) {
@@ -48,22 +76,18 @@ $(document).ready(function () {
 
     const file = $("#image").get(0).files[0];
     const reader = new FileReader();
-    reader.addEventListener("load", function () {
-      imageData = reader.result;
-      alert("Image uploaded successfully!");
-    });
-    reader.readAsDataURL(file);
-
-    location = $("#location").val();
-    journalTxt = $("#journalTxt").val();
+    // reader.addEventListener("load", function () {
+    //   imageData = reader.result;
+    //   alert("Image uploaded successfully!");
+    // });
+    // reader.readAsDataURL(file);
 
     let key = Date.now(); //timestamp as key
     date = key;
-    localStorage.setItem(
-      key,
-      JSON.stringify(new Journel(imageData, date, location, journalTxt))
-    );
+    localStorage.setItem(key, JSON.stringify());
+    form.hide();
   });
 
+  //adding form to left container
   $("#imageContainer").append(form);
 });

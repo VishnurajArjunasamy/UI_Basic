@@ -11,6 +11,7 @@ main {
   flex-direction: row;
 }
 main .left-container {
+  position: relative;
   width: 50%;
   height: 100vh;
 }
@@ -18,20 +19,76 @@ main .left-container .left-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  column-gap: 20px;
   align-items: center;
-  background-color: #87ceeb;
   height: 60px;
   padding: 0 30px;
   color: #ffffff;
+  background-color: #87ceeb;
   font-size: 20px;
 }
 main .left-container .left-header h2 {
+  flex: 1;
   font-size: 18px;
+  text-align: center;
+}
+main .left-container .left-header i {
+  cursor: pointer;
+}
+main .left-container .images-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 260px;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  background-color: #87ceeb;
+}
+main .left-container .images-form .fa-xmark {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+main .left-container .images-form .input-wrapper {
+  width: 100%;
+  height: 200px;
+  padding: 50% 0 0;
+  text-align: center;
+}
+main .left-container .images-form .input-wrapper input[type=file] {
+  margin-top: 20px;
+}
+main .left-container .images-form input[type=submit] {
+  width: 80px;
+  height: 30px;
+  margin-top: 30px;
+  background-color: #fff;
+  color: #87ceeb;
+  border: none;
+  cursor: pointer;
 }
 main .right-container {
   width: 50%;
   height: 100vh;
   background-color: aquamarine;
+}
+main .calandar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #87ceeb;
+}
+main .calandar-container .ui-datepicker-inline {
+  width: 500px;
 }
 
 /*# sourceMappingURL=index.css.map */
