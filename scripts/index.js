@@ -1,15 +1,19 @@
 $(document).ready(function () {
   let selectedDate =
     sessionStorage.getItem("selectedDate") || new Date().toLocaleDateString();
-  //journal object
-  // let journal = JSON.parse(localStorage.getItem(selectedDate)) || {
-  //   journalText: "",
-  //   images: [],
-  // };
+  //get journal object
+  localStorage.getItem(selectedDate)
+    ? null
+    : localStorage.setItem(
+        selectedDate,
+        JSON.stringify({ journalText: "", images: [] })
+      );
+
+  let journal = JSON.parse(localStorage.getItem(selectedDate));
+
   //calander page
   $("#calandarContainer").hide();
   const calandarContainer = $("<div>");
-  //date picker functionality
   //handle the date selected
   const onDateSelect = (date) => {
     sessionStorage.setItem("selectedDate", date);
@@ -18,6 +22,7 @@ $(document).ready(function () {
     $("#descpContainer").show();
     location.reload(true);
   };
+  //date picker functionality
   calandarContainer.datepicker({
     onSelect: onDateSelect,
     dateFormat: "dd/mm/yy",
@@ -59,12 +64,14 @@ $(document).ready(function () {
       const base64String = reader.result;
       journal = JSON.parse(localStorage.getItem(selectedDate));
       let images = journal.images;
-
-      // journal = JSON.parse(localStorage.getItem(selectedDate));
       images.push(base64String);
       localStorage.setItem(
         selectedDate,
-        JSON.stringify({ ...journal, images: images })
+        JSON.stringify({
+          ...journal,
+          images: images,
+          lastUpdated: new Date().toUTCString(),
+        })
       );
       location.reload(true);
     };
@@ -101,7 +108,8 @@ $(document).ready(function () {
   const images = $("<div>");
   images.addClass("images");
   //Loading the date specific images form local storage
-  const imageArray = JSON.parse(localStorage.getItem(selectedDate)) || [];
+  const imageArray =
+    JSON.parse(localStorage.getItem(selectedDate)).images || [];
   //show empty image if array is empty
   if (imageArray.length == 0) {
     const emptyCard = $("<img/>")
@@ -109,7 +117,7 @@ $(document).ready(function () {
       .addClass("empty-card");
     images.append(emptyCard);
   } else {
-    imageArray.forEach((element) => {
+    journal.images.forEach((element) => {
       const imageCard = $("<img/>").attr("src", element).addClass("image-card");
       images.append(imageCard);
     });
@@ -131,7 +139,7 @@ $(document).ready(function () {
   } else {
     cover = "assets/images/summer-cover.jpeg";
   }
-  const coverImage = $("<img/>").attr("src", cover).addClass("cover-container");
+  const coverImage = $("<img/>").attr("src", cover).addClass("cover-image");
 
   // format date
   const formatedDate = {};
@@ -141,13 +149,37 @@ $(document).ready(function () {
     dateStr = parts[2] + "-" + parts[1] + "-" + parts[0];
     const date = new Date(dateStr);
 
+    const month = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    const weekday = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+
     formatedDate.date = date.getDate();
-    formatedDate.month = date.getMonth();
+    formatedDate.month = month[date.getMonth()];
     formatedDate.year = date.getFullYear();
-    formatedDate.day = date.getDay();
-    formatedDate.time = `${date.getDay()} ${
-      date.getHours() % 12
-    }:${date.getMinutes()} ${date.getHours() > 12 ? "PM" : "AM"}`;
+    formatedDate.day = weekday[date.getDay()];
+    formatedDate.time = ` ${date.getHours() % 12}:${date.getMinutes()} ${
+      date.getHours() > 12 ? "PM" : "AM"
+    }`;
   };
   formatDate(selectedDate);
 
@@ -155,29 +187,43 @@ $(document).ready(function () {
   const timeLine = $("<div class='vertical-split'></div>")
     .append($(`<h1>${formatedDate.date}</h1>`))
     .append(
-      $('<div class="horizontal-split"></div>').append(
-        $(
-          `<p>${formatedDate.month} ${formatedDate.date},${formatedDate.year}</p>`
-        ).append($(`<p>${formatedDate.day} ${formatedDate.time}</p>`))
+      $('<div class="horizontal-split"></div>')
+        .append(
+          $(
+            `<p>${formatedDate.month} ${formatedDate.date},${formatedDate.year}</p>`
+          )
+        )
+        .append($(`<p>${formatedDate.day} ${formatedDate.time}</p>`))
+    )
+    .append(
+      $(
+        `<h6>${
+          journal.lastUpdated ? "Last updated: " + journal.lastUpdated : ""
+        }</h6>`
       )
     );
-
+  journal = JSON.parse(localStorage.getItem(selectedDate));
+  journalText = journal.journalText;
   //journal area
   const journalArea = $(
-    `<textarea id="journalBox" class="text-box" value=${journal.journalText}  placeholder="Enter text here..." ></textarea>`
+    `<textarea id="journalBox" class="text-box"  placeholder="Enter text here..." >${journalText}</textarea>`
   );
   journalArea.on("input", function () {
     console.log("changed to ", $(this).val());
-    journal = JSON.parse(localStorage.getItem(selectedDate));
-    localStorage.setItem(selectedDate, {
-      ...journal,
-      journalText: journalArea,
-    });
+    localStorage.setItem(
+      selectedDate,
+      JSON.stringify({
+        ...journal,
+        journalText: $(this).val(),
+        lastUpdated: new Date().toUTCString(),
+      })
+    );
   });
 
   $("#descpContainer")
     .append(rightHeader)
     .append(coverImage)
-    .append(timeLine)
-    .append(journalArea);
+    .append(
+      $("<div class='wrapper'></div>").append(timeLine).append(journalArea)
+    );
 });

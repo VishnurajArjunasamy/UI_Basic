@@ -89,10 +89,12 @@ main .left-container .images .empty-card {
   transform: translate(-50%, -65%);
   width: 200px;
   height: 200px;
+  object-fit: contain;
 }
 main .left-container .images .image-card {
   width: 33.3333333333%;
   height: 200px;
+  object-fit: contain;
 }
 main .right-container {
   width: 50%;
@@ -121,19 +123,40 @@ main .right-container .right-header i {
 main .right-container .right-header i {
   color: #99f0fb;
 }
-main .right-container .cover-container {
+main .right-container .cover-image {
   width: 100%;
   height: 400px;
+  object-fit: contain;
 }
-main .right-container .vertical-split {
+main .right-container .wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 10px;
+}
+main .right-container .wrapper .vertical-split {
   display: flex;
   flex-direction: row;
-  height: 45px;
+  column-gap: 10px;
+  align-items: center;
+  height: 50px;
   color: #87ceeb;
 }
-main .right-container .text-box {
+main .right-container .wrapper .vertical-split h1 {
+  font-size: 35px;
+}
+main .right-container .wrapper .vertical-split .horizontal-split {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+main .right-container .wrapper .vertical-split h6 {
+  flex: 1;
+  text-align: right;
+}
+main .right-container .wrapper .text-box {
   width: 100%;
-  height: calc(100vh - 60px - 400px - 60px);
+  height: calc(100vh - 60px - 400px - 100px);
   outline: none;
   resize: none;
   border: 0;
