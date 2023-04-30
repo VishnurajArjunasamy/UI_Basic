@@ -39,7 +39,8 @@ main .left-container .images-form {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -65%);
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,10 +74,69 @@ main .left-container .images-form input[type=submit] {
   border: none;
   cursor: pointer;
 }
+main .left-container .images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  height: calc(100vh - 60px);
+  overflow-y: scroll;
+}
+main .left-container .images .empty-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -65%);
+  width: 200px;
+  height: 200px;
+}
+main .left-container .images .image-card {
+  width: 33.3333333333%;
+  height: 200px;
+}
 main .right-container {
   width: 50%;
   height: 100vh;
-  background-color: aquamarine;
+}
+main .right-container .right-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  column-gap: 20px;
+  align-items: center;
+  height: 60px;
+  padding: 0 30px;
+  color: #ffffff;
+  background-color: #87ceeb;
+  font-size: 20px;
+}
+main .right-container .right-header h2 {
+  flex: 1;
+  font-size: 18px;
+  text-align: center;
+}
+main .right-container .right-header i {
+  cursor: pointer;
+}
+main .right-container .right-header i {
+  color: #99f0fb;
+}
+main .right-container .cover-container {
+  width: 100%;
+  height: 400px;
+}
+main .right-container .vertical-split {
+  display: flex;
+  flex-direction: row;
+  height: 45px;
+  color: #87ceeb;
+}
+main .right-container .text-box {
+  width: 100%;
+  height: calc(100vh - 60px - 400px - 60px);
+  outline: none;
+  resize: none;
+  border: 0;
 }
 main .calandar-container {
   display: flex;
