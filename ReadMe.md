@@ -1,1 +1,1 @@
-sass --watch input.scss output.css
+sass --watch ./css/index.scss ./css/index.css

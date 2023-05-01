@@ -126,7 +126,7 @@ main .right-container .right-header i {
 main .right-container .cover-image {
   width: 100%;
   height: 400px;
-  object-fit: contain;
+  object-fit: fill;
 }
 main .right-container .wrapper {
   display: flex;
@@ -161,7 +161,7 @@ main .right-container .wrapper .text-box {
   resize: none;
   border: 0;
 }
-main .calandar-container {
+main .calendar-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -170,7 +170,7 @@ main .calandar-container {
   height: 100vh;
   background-color: #87ceeb;
 }
-main .calandar-container .ui-datepicker-inline {
+main .calendar-container .ui-datepicker-inline {
   width: 500px;
 }
 

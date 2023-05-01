@@ -11,24 +11,24 @@ $(document).ready(function () {
 
   let journal = JSON.parse(localStorage.getItem(selectedDate));
 
-  //calander page
-  $("#calandarContainer").hide();
-  const calandarContainer = $("<div>");
+  //calandr page
+  $("#calendarContainer").hide();
+  const calendarContainer = $("<div>");
   //handle the date selected
   const onDateSelect = (date) => {
     sessionStorage.setItem("selectedDate", date);
-    $("#calandarContainer").hide();
+    $("#calendarContainer").hide();
     $("#imageContainer").show();
     $("#descpContainer").show();
     location.reload(true);
   };
   //date picker functionality
-  calandarContainer.datepicker({
+  calendarContainer.datepicker({
     onSelect: onDateSelect,
     dateFormat: "dd/mm/yy",
     defaultDate: new Date(),
   });
-  $("#calandarContainer").append(calandarContainer);
+  $("#calendarContainer").append(calendarContainer);
 
   //Close Icon for add image form
   const closeIcon = $('<i class="fa-solid fa-xmark"></i>');
@@ -87,9 +87,9 @@ $(document).ready(function () {
   });
 
   //Calender Icon
-  const calandarIcon = $('<i class="fa-solid fa-calendar-days"></i>');
-  calandarIcon.click(() => {
-    $("#calandarContainer").show();
+  const calendarIcon = $('<i class="fa-solid fa-calendar-days"></i>');
+  calendarIcon.click(() => {
+    $("#calendarContainer").show();
     $("#imageContainer").hide();
     $("#descpContainer").hide();
   });
@@ -98,7 +98,7 @@ $(document).ready(function () {
   leftHeader.addClass("left-header");
   //left container header
   leftHeader
-    .append(calandarIcon)
+    .append(calendarIcon)
     .append($("<h2>MEDIA</h2>"))
     .append(addImgeIcon)
     .append($('<i class="fa fa-gear"></i>'));
